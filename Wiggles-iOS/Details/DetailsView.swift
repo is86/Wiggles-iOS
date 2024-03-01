@@ -29,15 +29,17 @@ struct DetailsView: View {
                             HStack {
                                 Button(action: { self.presentationMode.wrappedValue.dismiss() },
                                        label: { Image(IMAGE_BACK_ICON).resizable().frame(width: 34, height: 34) })
+                                .accessibilityIdentifier("BackButton")
                                 Spacer()
                                 Button(action: { viewModel.favouriteMethod() },
-                                       label: { Image(IMAGE_FAV_ICON).resizable().frame(width: 26, height: 26) })
+                                       label: { Image(IMAGE_FAV_ICON).resizable().frame(width: 26, height: 26) }).accessibilityIdentifier("FavouriteButton")
                             }.padding(.horizontal, 24).padding(.top, 46)
                         }
                         Group {
                             HStack {
                                 Text(viewModel.model.name).modifier(SailecFont(.bold, size: 24)).lineLimit(1)
                                     .foregroundColor(Color.text_primary_color)
+                                    .accessibilityIdentifier("DogNameDetail")
                                 Spacer()
                                 GenderView(isMale: viewModel.model.gender == "male")
                             }.padding(.vertical, 8)
@@ -67,6 +69,7 @@ struct DetailsView: View {
                                 }
                                 Text(viewModel.story).modifier(SailecFont(.regular, size: 16))
                                     .foregroundColor(Color.text_primary_color)
+                                    .accessibilityIdentifier("MyStoryText")
                             }.padding(.vertical, 16)
                             
                             VStack(spacing: 16) {
@@ -122,13 +125,16 @@ struct DetailsOwnerView: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text(name).modifier(SailecFont(.medium, size: 16))
                     .foregroundColor(Color.text_primary_color)
+                    .accessibilityIdentifier("DetailName")
                 Text(bio).modifier(SailecFont(.regular, size: 14))
                     .foregroundColor(Color(hex: "828282"))
+                    .accessibilityIdentifier("DetailBio")
             }.padding(.leading, 8)
             Spacer()
             Button(action: { self.messageMethod() },
                    label: { Image(IMAGE_MSG_ICON).resizable().frame(width: 20, height: 20) })
                 .frame(width: 45, height: 45).background(Color.main_color).cornerRadius(25)
+                .accessibilityIdentifier("MessageButton")
         }
     }
 }

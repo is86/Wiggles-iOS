@@ -21,14 +21,17 @@ struct HomeView: View {
                             VStack(alignment: .leading) {
                                 Text("Hey Sameer,").modifier(SailecFont(.bold, size: 24))
                                     .foregroundColor(Color.text_primary_color).padding(.top, 16)
+                                    .accessibilityIdentifier("GreetingName")
                                 Text("Adopt a new friend near you!").modifier(SailecFont(.regular, size: 18))
                                     .foregroundColor(Color.text_primary_color).padding(.top, 4)
+                                    .accessibilityIdentifier("GreetingMessage")
                             }
                             Spacer()
                         }
                         Text("Nearby results").modifier(SailecFont(.bold, size: 14))
                             .foregroundColor(Color.text_primary_color)
                             .padding(.top, 24).padding(.bottom, 8)
+                            .accessibilityIdentifier("ResultsHeading")
                         ForEach(viewModel.dogsList) { model in
                             NavigationLink(destination: DetailsView(model: model), label: {
                                 HomeListModelView(image: model.image, name: model.name, age: model.age,
@@ -76,6 +79,7 @@ struct HomeListModelView: View {
         .padding(16)
         .background(Color.secondary_color)
         .cornerRadius(16)
+        .accessibilityIdentifier("Dog-\(name)")
     }
 }
 
@@ -87,6 +91,7 @@ struct GenderView: View {
             .padding(.horizontal, 18).padding(.vertical, 8)
             .background(isMale ? Color.blue_color_trans : Color.red_color_trans)
             .cornerRadius(12)
+            .accessibilityIdentifier("Gender")
     }
 }
 
