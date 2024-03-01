@@ -32,7 +32,7 @@ final class Wiggles_iOSUITests: XCTestCase {
         let elementsQuery = scrollViewsQuery.otherElements
         // get the components
         let greetingName = app.staticTexts["GreetingName"]
-        //Check teh greeting name exists
+        //Check the greeting name exists
         XCTAssertTrue(greetingName.exists)
         
         let greetingMessage = app.staticTexts["GreetingMessage"]
@@ -43,6 +43,34 @@ final class Wiggles_iOSUITests: XCTestCase {
         
         let dog2 = elementsQuery.staticTexts["Dog-MiloMan"]
         XCTAssertTrue(dog2.exists)
+        
+        //find first image and tap to view the detail
+        elementsQuery.images.firstMatch.tap()
+        
+        //Check the selected dog name and other details are present
+        let detailDogName = elementsQuery.staticTexts["DogNameDetail"]
+        XCTAssertTrue(detailDogName.exists)
+        let myStoryText = elementsQuery.staticTexts["MyStoryText"]
+        XCTAssertTrue(myStoryText.exists)
+        
+        //Owner's Info
+        let detailBio = elementsQuery.staticTexts["DetailBio"]
+        XCTAssertTrue(detailBio.exists)
+        let detailName = elementsQuery.staticTexts["DetailName"]
+        XCTAssertTrue(detailName.exists)
+        
+        //Navigate back to homepage view
+        myStoryText.swipeDown()
+        elementsQuery.buttons["BackButton"].tap()
+        
+        //Check we are back on homepage
+        XCTAssert(greetingName.exists)
+        XCTAssert(dog1.exists)
+        XCTAssert(dog2.exists)
+        
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        // POM pattern, see https://medium.nextlevelswift.com/your-ultimate-xcuitest-ios-design-pattern-page-object-model-pom-bfb82b265bb0
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
