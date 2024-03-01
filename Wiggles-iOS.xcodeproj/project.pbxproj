@@ -27,6 +27,8 @@
 		73E4B4D925EE75B10020C282 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E4B4D825EE75B10020C282 /* DetailsViewModel.swift */; };
 		E6B00FDF2B92170600E45B9E /* Wiggles_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B00FDE2B92170600E45B9E /* Wiggles_iOSUITests.swift */; };
 		E6B00FE12B92170600E45B9E /* Wiggles_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B00FE02B92170600E45B9E /* Wiggles_iOSUITestsLaunchTests.swift */; };
+		E6B00FE92B921E6800E45B9E /* DogList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B00FE82B921E6800E45B9E /* DogList.swift */; };
+		E6B00FEB2B921E9E00E45B9E /* DogDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B00FEA2B921E9E00E45B9E /* DogDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		E6B00FDC2B92170500E45B9E /* Wiggles-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wiggles-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6B00FDE2B92170600E45B9E /* Wiggles_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wiggles_iOSUITests.swift; sourceTree = "<group>"; };
 		E6B00FE02B92170600E45B9E /* Wiggles_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wiggles_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E6B00FE82B921E6800E45B9E /* DogList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogList.swift; sourceTree = "<group>"; };
+		E6B00FEA2B921E9E00E45B9E /* DogDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,10 +190,20 @@
 		E6B00FDD2B92170600E45B9E /* Wiggles-iOSUITests */ = {
 			isa = PBXGroup;
 			children = (
+				E6B00FE72B921E4300E45B9E /* Screens */,
 				E6B00FDE2B92170600E45B9E /* Wiggles_iOSUITests.swift */,
 				E6B00FE02B92170600E45B9E /* Wiggles_iOSUITestsLaunchTests.swift */,
 			);
 			path = "Wiggles-iOSUITests";
+			sourceTree = "<group>";
+		};
+		E6B00FE72B921E4300E45B9E /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				E6B00FE82B921E6800E45B9E /* DogList.swift */,
+				E6B00FEA2B921E9E00E45B9E /* DogDetail.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +330,8 @@
 			files = (
 				E6B00FDF2B92170600E45B9E /* Wiggles_iOSUITests.swift in Sources */,
 				E6B00FE12B92170600E45B9E /* Wiggles_iOSUITestsLaunchTests.swift in Sources */,
+				E6B00FE92B921E6800E45B9E /* DogList.swift in Sources */,
+				E6B00FEB2B921E9E00E45B9E /* DogDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
