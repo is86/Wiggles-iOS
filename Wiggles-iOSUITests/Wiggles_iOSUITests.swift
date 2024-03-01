@@ -27,46 +27,41 @@ final class Wiggles_iOSUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         //access to the scrollable content of the page
-        let scrollViewsQuery = app.scrollViews
-        //get the elements in scroll view
-        let elementsQuery = scrollViewsQuery.otherElements
-        // get the components
-        let greetingName = app.staticTexts["GreetingName"]
-        //Check the greeting name exists
-        XCTAssertTrue(greetingName.exists)
+        //Check elements of dog list screen
+        let dogListScreen = DogList(app: app)
+        XCTAssertTrue(dogListScreen.greetingName.exists)
+        XCTAssertTrue(dogListScreen.greetingMessage.exists)
+        XCTAssertTrue(dogListScreen.firstDog.exists)
+        XCTAssertTrue(dogListScreen.secondDog.exists)
+        let firstdogName = dogListScreen.firstDog.label
+        //tap to select a dog
+        dogListScreen.clickFirstDogImage()
         
-        let greetingMessage = app.staticTexts["GreetingMessage"]
-        XCTAssertTrue(greetingMessage.exists)
+        //Check details of selected exist
+        let detailScreen = DogDetail(app: app)
+        XCTAssertTrue(detailScreen.dogName.exists)
+        // check its the same dog
+        XCTAssertEqual(detailScreen.dogName.label, firstdogName)
+        XCTAssertTrue(detailScreen.mystorytext.exists)
+        
+        detailScreen.favouriteButton.tap()
+        // todo assert some sort of alert etc. on button clicks
 
-        let dog1 = elementsQuery.staticTexts["Dog-Parkinson"]
-        XCTAssertTrue(dog1.exists)
+        detailScreen.mystorytext.swipeRight()
+        detailScreen.messageButton.tap()
+        // todo assert some sort of alert etc. on button clicks
         
-        let dog2 = elementsQuery.staticTexts["Dog-MiloMan"]
-        XCTAssertTrue(dog2.exists)
+        detailScreen.mystorytext.swipeUp()
+        detailScreen.adoptMeButton.tap()
+        // todo assert some sort of alert etc. on button clicks
         
-        //find first image and tap to view the detail
-        elementsQuery.images.firstMatch.tap()
+        detailScreen.mystorytext.swipeDown()
+        detailScreen.clickBackButton()
         
-        //Check the selected dog name and other details are present
-        let detailDogName = elementsQuery.staticTexts["DogNameDetail"]
-        XCTAssertTrue(detailDogName.exists)
-        let myStoryText = elementsQuery.staticTexts["MyStoryText"]
-        XCTAssertTrue(myStoryText.exists)
+        //navigate back to home page
+        XCTAssertTrue(dogListScreen.firstDog.exists)
+        XCTAssertTrue(dogListScreen.secondDog.exists)
         
-        //Owner's Info
-        let detailBio = elementsQuery.staticTexts["DetailBio"]
-        XCTAssertTrue(detailBio.exists)
-        let detailName = elementsQuery.staticTexts["DetailName"]
-        XCTAssertTrue(detailName.exists)
-        
-        //Navigate back to homepage view
-        myStoryText.swipeDown()
-        elementsQuery.buttons["BackButton"].tap()
-        
-        //Check we are back on homepage
-        XCTAssert(greetingName.exists)
-        XCTAssert(dog1.exists)
-        XCTAssert(dog2.exists)
         
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         

@@ -1,7 +1,7 @@
 import Foundation
 import XCTest
 
-class DetailScreen {
+class DogDetail {
     
     let app: XCUIApplication
     let dogName: XCUIElement

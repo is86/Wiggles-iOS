@@ -14,8 +14,8 @@ class DogList {
         self.app = app
         greetingName = app.staticTexts["GreetingName"]
         greetingMessage = app.staticTexts["GreetingMessage"]
-        firstDog = app.staticTexts["Dog-Parkinson"]
-        secondDog = app.staticTexts["Dog-MiloMan"]
+        firstDog = app.staticTexts["Parkinson"]
+        secondDog = app.staticTexts["MiloMan"]
     }
     //click the dog image to view detail
     func clickFirstDogImage() {
