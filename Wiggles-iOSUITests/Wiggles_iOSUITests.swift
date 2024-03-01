@@ -7,11 +7,13 @@
 
 import XCTest
 
+// POM pattern, see https://medium.nextlevelswift.com/your-ultimate-xcuitest-ios-design-pattern-page-object-model-pom-bfb82b265bb0
 final class Wiggles_iOSUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-
+        // todo can add screenshot here
+        
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
 
@@ -61,12 +63,6 @@ final class Wiggles_iOSUITests: XCTestCase {
         //navigate back to home page
         XCTAssertTrue(dogListScreen.firstDog.exists)
         XCTAssertTrue(dogListScreen.secondDog.exists)
-        
-        
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
-        // POM pattern, see https://medium.nextlevelswift.com/your-ultimate-xcuitest-ios-design-pattern-page-object-model-pom-bfb82b265bb0
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
     func testLaunchPerformance() throws {
